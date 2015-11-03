@@ -18,6 +18,13 @@ namespace SiteMapHandler.Handlers
             context.Response.ClearHeaders();
             context.Response.ClearContent();
 
+            //using (var gzipStream = new GZipStream(context.Response.OutputStream, CompressionMode.Compress))
+            //{
+            //    var xml = new XmlDocument();
+            //    xml.LoadXml(GetSiteMap(1).ToString());
+            //    xml.Save(gzipStream);
+            //}
+            
             if (context.Request.CurrentExecutionFilePathExtension == ".gz")
             {
                 context.Response.ContentType = "application/x-gzip";
